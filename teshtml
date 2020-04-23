@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	  <title>yoshpunyaaa</title>
+	  <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	  <style type="text/css">
+	  	body{
+	  		overflow: hidden;
+	  		background: black;
+	  		width: 100%;
+	  		height: 100vh;
+				animation: bganimation 10s infinite;
+	  	}
+	  	.bg{
+	  		width: 100%;
+	  		height: 100vh;
+	  		position: absolute;
+	  		z-index: -1;
+	  	}
+
+	  	.morning{
+	  		background: linear-gradient(0deg, rgba(255,230,113,1) 0%, rgba(82,167,255,1) 100%);
+	  		opacity: 0;
+	  	}
+	  	.noon{
+	  		background: linear-gradient(0deg, rgba(22,183,255,1) 0%, rgba(14,116,223,1) 58%, rgba(1,7,170,1) 100%);
+	  		opacity: 0;
+	  	}
+	  	.afternoon{
+	  		background: linear-gradient(0deg, rgba(161,133,255,1) 0%, rgba(0,118,226,1) 61%, rgba(1,81,170,1) 100%);
+	  		opacity: 0;
+	  	}
+	  	.sunset{
+	  		background: linear-gradient(100deg, rgba(195,95,42,1) 0%, rgba(129,29,121,1) 8%, rgba(89,1,170,1) 29%, rgba(1,5,79,1) 90%);
+	  		opacity: 0;
+	  	}
+	  	.evening{
+	  		background: linear-gradient(125deg, rgba(0,7,100,1) 0%, rgba(0,3,1,1) 100%);
+	  		opacity: 0;
+	  	}
+	  	.midnight{
+				background: linear-gradient(70deg, #4287f5, #072352, #01122e, #01122e, #01122e, #000000, #020626);
+    		background-size: 500% 500%;
+				-webkit-animation: ignielGradient 30s ease infinite;
+    		-moz-animation: ignielGradient 30s ease infinite;
+    		animation: ignielGradient 30s ease infinite;
+	  	}
+	  	.red{
+	  		background: linear-gradient(90deg, rgba(255,0,255,1) 0%, rgba(255,0,0,1) 50%, rgba(255,255,0,1) 100%);
+				animation: bganimation 15s infinite;
+	  		opacity: 0;
+	  	}
+	  	.green{
+	  		background: linear-gradient(90deg, rgba(255,255,0,1) 0%, rgba(0,255,0,1) 50%, rgba(0,255,255,1) 100%);
+	  		opacity: 0;
+	  	}
+	  	.blue{
+	  		background: linear-gradient(90deg, rgba(0,255,255,1) 0%, rgba(0,0,255,1) 50%, rgba(255,0,255,1) 100%);
+	  		opacity: 0;
+	  	}
+	  	.custom{
+	  		background-color: #0079F;
+	  		opacity: 0;
+	  	}
+
+	  	.jam,.ucapan,.quotes,.hari{
+	  		margin: 0px;
+	  		padding: 0px;
+	  		position: absolute;
+	  		color: #FFFFFF;
+	  		transition: all 5s ease, color 1s ease;
+	  	}
+	  	.jam{
+	  		opacity: 0;
+	  		font-size: 30pt;
+	  		left: 50%;
+	  		bottom: 50%;
+				font-family: Impact;
+				text-shadow:
+	   			1px 1px #577079,
+				  2px 2px #577079,
+	   	 		3px 3px #577079,
+	   			8px 8px 15px #000000;
+	  		transform: translate(-50%,calc(50% - 100px));
+	  	}
+	  	.ucapan{
+	  		font-size: 20pt;
+	  		left: 50%;
+	  		bottom: 50%;
+	  		text-align: center;
+				text-shadow: 3px 4px 10px black;
+	  		transform: translate(-50%,calc(50% + 100px));
+	  	}
+
+			.hari{
+	  		font-size: 10pt;
+	  		left: 50%;
+	  		bottom: 50%;
+	  		text-align: center;
+				font-family: impact;
+				text-shadow:
+	   			1px 1px #577079,
+	   			2px 2px #577079,
+		 			6px 6px 10px #000000;
+	  		transform: translate(-50%,calc(50% - 50px));
+	  	}
+
+	  	.kontrol{
+	  		margin: 20px;
+	  		background: #fff;
+	  		padding: 20px;
+	  		position: absolute;
+	  		width: 200px;
+	  		border-radius: 10px;
+	  		left: -220px;
+	  		transition: all 1 ease;
+	  		z-index: 99;
+	  	}
+
+	  	.note{
+	  		color: white;
+	  		transition: all 2s ease;
+	  		opacity: 0;
+	  		position: absolute;
+	  		top: 50%;
+	  		left: 50%;
+	  		transform: translate(-50%,-50%);
+	  		font-size: 20pt;
+	  		text-align: center;
+	  		width: 100vh;
+	  	}
+
+  		.pengembang{
+  			position: absolute;
+  			font-size: 10px;
+  			color: #FFFFFF;
+  			bottom: 0px;
+  			right: 0px;
+  			opacity: 0.3;
+  		}
+  		@keyframes animate{
+  			0%{
+  				transform: translateY(0) rotate(0deg);
+  				opacity: 1;
+  			}
+  			100%{
+  				transform: translateY(-100vh) rotate(360deg);
+  				opacity: 0;
+  			}
+  		}
+  		@keyframes animate2{
+  			0%{
+  				transform:rotate(0deg);
+  			}
+  			100%{
+  				transform:rotate(360deg);
+  			}
+  		}
+  		@keyframes animate3{
+  			0%{
+  				transform:rotate(360deg);
+  			}
+  			100%{
+  				transform:rotate(0deg);
+  			}
+  		}
+  		@media only screen and (max-width: 900px), screen and (max-height: 700px) {
+  			.jam,.ucapan,.hari{
+  				transition: all 1s ease;
+  			}
+			.jam{
+		  		font-size: 50pt;
+		  		transform: translate(-50%,calc(50% - 100px));
+		  	}
+		  	.ucapan{
+		  		font-size: 15pt;
+		  		transform: translate(-50%,calc(50% + 50px));
+		  	}
+				.hari{
+					font-size: 15pt;
+					transform: translate(-50%,calc(50% - 50px));
+				}
+		  .note,.hari{
+		  		font-size: 15pt;
+		  	}
+		  	.bulat{
+	  			width: 300px;
+	  			height: 300px;
+	  		}
+  		}
+  		@media only screen and (max-width: 500px){
+  			.ucapan{
+		  		font-size: 10pt;
+		  	}
+		  	.note{
+		  		font-size: 10pt;
+		  	}
+				.hari{
+					font-size: 7pt;
+  		}
+		}
+@-webkit-keyframes ignielGradient {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes ignielGradient {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes ignielGradient {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+	  </style>
+	</head>
+	<body onload="init()">
+		<div class="kontrol" onload="readStorage()">
+			<div class="custom-control custom-radio">
+		      <input type="radio" class="custom-control-input" id="customRadio0" name="example1" checked>
+
+		    </div>
+		</div>
+		<div class="bg morning"></div>
+		<div class="bg noon"></div>
+		<div class="bg afternoon"></div>
+		<div class="bg sunset"></div>
+		<div class="bg evening"></div>
+		<div class="bg midnight"></div>
+		<div class="bg red"></div>
+		<div class="bg green"></div>
+		<div class="bg blue"></div>
+		<div class="container">
+			<div class="quotes">
+				<p id="quotation"></p>
+				<p id="source"></p>
+			</div>
+
+			<div class="bulat">
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+
+			<div class="jam" id="time">
+				00:00:00
+			</div>
+			<div class="hari" id="nihari"></div>
+			<div class="ucapan" id="quote"> <br> <br> <br> <br> </div>
+			<div class="note"></div>
+				<div class="pengembang">#stayhealth #staysafe #stayathome #jangbapontarNn || Yosh</div>
+		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/baffle@0.3.6/dist/baffle.min.js"></script>
+		<script type="text/javascript">
+			gaming=false;
+			tombol=false;
+			function init(){
+				init_auto();
+				specialEffects();
+			}
+			baffleEffect = baffle('.note', {
+			    characters: 'supercalifragilisticexpialidocious',
+			    speed: 150
+			});
+
+			function bro(){
+				namaku = $(".pengembang").text();
+			    var hex, i;
+
+			    var result = "";
+			    for (i=0; i<namaku.length; i++) {
+			        hex = namaku.charCodeAt(i).toString(16);
+			        result += ("000"+hex).slice(-4);
+			    }
+			}
+
+			function specialEffects(){
+				if(localStorage.getItem("manualColor")=="#4c1130"){
+					setTimeout(function() { createNote(":)"); }, 5000);
+				}
+				else if(localStorage.getItem("manualColor")=="#000000"){
+					setTimeout(function() { createNote(":)"); }, 5000);
+				}
+			}
+			function createNote(isi){
+				$(".jam").css("font-size","30pt").css("bottom","calc( 50% - 50px )");
+				$(".hari").css("font-size","30pt").css("bottom","calc( 50% - 50px )");
+				$(".ucapan").css("opacity","0");
+				$(".quotes").css("opacity","0");
+				$(".quotes").css("opacity","0");
+				$(".bulat").css("opacity","0");
+				setTimeout(function() { writeNote(isi); }, 3000);
+			}
+			function writeNote(isi){
+				$(".note").text(isi).css("opacity","1");
+
+				baffle('.note')
+					.reveal(2000)
+				    .start()
+				    .set({
+				        characters: '░░█ /<▒▓▒ ▒░▒█/ █/▒ ▒▓/█▒ ▓▒░▓ ██░ ▒░▓░ ▒░▓█',
+				        speed: 150
+				    });
+				    localStorage.setItem("manualColor", "#0079FF");
+			}
+			auto=true;
+			cek=false;
+
+			function morning(){
+				$(".morning").animate({opacity:"1"},1000);
+				$(".dawn").animate({opacity:"0"},500);
+				$(".ubuntu").animate({opacity:"0"},500);
+				$(".noon").animate({opacity:"0"},500);
+				$(".afternoon").animate({opacity:"0"},500);
+				$(".sunset").animate({opacity:"0"},500);
+				$(".evening").animate({opacity:"0"},500);
+				$(".midnight").animate({opacity:"0"},500);
+				$(".red").animate({opacity:"0"},500);
+				$(".green").animate({opacity:"0"},500);
+				$(".blue").animate({opacity:"0"},500);
+				$(".custom").animate({opacity:"0"},500);
+				black();
+			}
+			function noon(){
+				$(".noon").animate({opacity:"1"},1000);
+				$(".dawn").animate({opacity:"0"},500);
+				$(".ubuntu").animate({opacity:"0"},500);
+				$(".morning").animate({opacity:"0"},500);
+				$(".afternoon").animate({opacity:"0"},500);
+				$(".sunset").animate({opacity:"0"},500);
+				$(".evening").animate({opacity:"0"},500);
+				$(".midnight").animate({opacity:"0"},500);
+				$(".red").animate({opacity:"0"},500);
+				$(".green").animate({opacity:"0"},500);
+				$(".blue").animate({opacity:"0"},500);
+				$(".custom").animate({opacity:"0"},500);
+				black();
+			}
+			function afternoon(){
+				$(".afternoon").animate({opacity:"1"},1000);
+				$(".dawn").animate({opacity:"0"},500);
+				$(".ubuntu").animate({opacity:"0"},500);
+				$(".morning").animate({opacity:"0"},500);
+				$(".noon").animate({opacity:"0"},500);
+				$(".sunset").animate({opacity:"0"},500);
+				$(".evening").animate({opacity:"0"},500);
+				$(".midnight").animate({opacity:"0"},500);
+				$(".red").animate({opacity:"0"},500);
+				$(".green").animate({opacity:"0"},500);
+				$(".blue").animate({opacity:"0"},500);
+				$(".custom").animate({opacity:"0"},500);
+				black();
+			}
+			function sunset(){
+				$(".sunset").animate({opacity:"1"},1000);
+				$(".dawn").animate({opacity:"0"},500);
+				$(".ubuntu").animate({opacity:"0"},500);
+				$(".morning").animate({opacity:"0"},500);
+				$(".noon").animate({opacity:"0"},500);
+				$(".afternoon").animate({opacity:"0"},500);
+				$(".evening").animate({opacity:"0"},500);
+				$(".midnight").animate({opacity:"0"},500);
+				$(".red").animate({opacity:"0"},500);
+				$(".green").animate({opacity:"0"},500);
+				$(".blue").animate({opacity:"0"},500);
+				$(".custom").animate({opacity:"0"},500);
+				white();
+			}
+			function evening(){
+				$(".evening").animate({opacity:"1"},1000);
+				$(".dawn").animate({opacity:"0"},500);
+				$(".ubuntu").animate({opacity:"0"},500);
+				$(".morning").animate({opacity:"0"},500);
+				$(".noon").animate({opacity:"0"},500);
+				$(".afternoon").animate({opacity:"0"},500);
+				$(".sunset").animate({opacity:"0"},500);
+				$(".midnight").animate({opacity:"0"},500);
+				$(".red").animate({opacity:"0"},500);
+				$(".green").animate({opacity:"0"},500);
+				$(".blue").animate({opacity:"0"},500);
+				$(".custom").animate({opacity:"0"},500);
+				white();
+			}
+			function midnight(){
+				$(".midnight").animate({opacity:"1"},1000);
+				$(".dawn").animate({opacity:"0"},500);
+				$(".ubuntu").animate({opacity:"0"},500);
+				$(".morning").animate({opacity:"0"},500);
+				$(".noon").animate({opacity:"0"},500);
+				$(".afternoon").animate({opacity:"0"},500);
+				$(".sunset").animate({opacity:"0"},500);
+				$(".evening").animate({opacity:"0"},500);
+				$(".red").animate({opacity:"0"},500);
+				$(".green").animate({opacity:"0"},500);
+				$(".blue").animate({opacity:"0"},500);
+				$(".custom").animate({opacity:"0"},500);
+				white();
+			}
+			warna=1;
+			function gaming1(){
+				if (gaming){
+					fillblack();
+					if (warna==1){
+						red();
+					}
+					else if (warna==2) {
+						green();
+					}
+					else if (warna==3) {
+						blue();
+					}
+					warna+=1;
+					if (warna==4){
+						warna=1;
+					}
+				}
+			}
+			setInterval(gaming1, 4000);
+			function black(){
+				$(".jam").css("color","#FFFFFF");
+				$(".ucapan").css("color","#FFFFFF");
+				$(".hari").css("color","#FFFFFF");
+				$(".quotes").css("color","#000");
+				$(".quotes").css("text-shadow","0px 0px 10px #FFF");
+				$(".bulat span").css("border-color","#000");
+
+			}
+			function fillblack(){
+				$(".bulat span").css("background","#000");
+			}
+			function nofill(){
+				$(".bulat span").css("background","unset");
+			}
+			function white(){
+				$(".jam").css("color","#FFF");
+				$(".ucapan").css("color","#FFF");
+				$(".hari").css("color","#FFF");
+				$(".quotes").css("color","#FFF");
+				$(".quotes").css("text-shadow","0px 0px 10px #000");
+				$(".bulat span").css("border-color","#FFF");
+			}
+			function debug(){
+				console.log('debug');
+			}
+
+			var txt = 'Halo simp ku sayang';
+			var txt2 = 'txt';
+
+			function checkTime(i) {
+				if (i < 10) {
+						i = "0" + i;
+					}
+				return i;
+				}
+			var H;
+			var M;
+			var S;
+			var starting=true;
+			function startTime() {
+				var today = new Date();
+				var h = today.getHours();
+				var m = today.getMinutes();
+				var s = today.getSeconds();
+
+				H=h;
+				M=m;
+				S=s;
+
+				if (H<5){
+					txt='jang bagadang weiiii , jaga nga p kesehatan!';
+					if(txt != txt2 && !starting)
+						document.getElementById("quote").innerHTML = txt;
+					txt2=txt;
+				}
+				else if(H<9){
+					txt='so bangun nga? , selamat pagi jo eh :)';
+					if(txt != txt2 && !starting)
+						document.getElementById("quote").innerHTML = txt;
+					txt2=txt;
+				}
+				else if(H<12){
+					txt='semangattt for ni hariiii';
+					if(txt != txt2 && !starting)
+						document.getElementById("quote").innerHTML = txt;
+					txt2=txt;
+				}
+				else if(H<16){
+					txt='so siang, so makang nga ?';
+					if(txt != txt2 && !starting)
+						document.getElementById("quote").innerHTML = txt;
+					txt2=txt;
+				}
+				else if(H<19){
+					txt='so soreee, jang lupa mandiii';
+					if(txt != txt2 && !starting)
+						document.getElementById("quote").innerHTML = txt;
+					txt2=txt;
+				}
+				else if(H<23){
+					txt='So boleh tidor eh jang ja tidor lat ^^ , kong berdoa sebelum nga tidor :) ';
+					if(txt != txt2 && !starting)
+						document.getElementById("quote").innerHTML = txt;
+					txt2=txt;
+				}
+				else if(H<=24){
+					txt='so boleh tidor, jang ja tidor lat' ;
+					if(txt != txt2 && !starting)
+						document.getElementById("quote").innerHTML = txt;
+					txt2=txt;
+				}
+				starting=false;
+
+				if (auto && m==0 && s==0){
+					if ((h>23) || (h<4)){
+						midnight();
+					}
+					else if(h<6){
+						dawn();
+					}
+					else if(h<9){
+						morning();
+					}
+					else if(h<17){
+						noon();
+					}
+					else if(h<18){
+						afternoon();
+					}
+					else if(h<19){
+						sunset();
+					}
+					else if(h<23){
+						evening();
+					}
+				}
+
+				// add a zero in front of numbers<10
+				m = checkTime(m);
+				s = checkTime(s);
+				document.getElementById('time').innerHTML = h + ":" + m + ":" + s;
+				t = setTimeout(function() {
+				startTime()
+				}, 500);
+			}
+			startTime();
+			function init_auto(){
+				if ((H>23) || (H<4)){
+					midnight();
+				}
+				else if(H<6){
+					dawn();
+				}
+				else if(H<9){
+					morning();
+				}
+				else if(H<17){
+					noon();
+				}
+				else if(H<18){
+					afternoon();
+				}
+				else if(H<19){
+					sunset();
+				}
+				else if(H<23){
+					evening();
+				}
+				else{
+					midnight();
+				}
+			}
+
+
+			var i = 0;
+
+			var speed = 30;
+
+			function typeWriter() {
+				if (i < txt.length) {
+					var o = (i/txt.length*2);
+					var o = o.toFixed(0);
+					var o2 = o-1;
+					if (o2<0)
+						o2=0;
+					var o3 = String(o);
+					var p = "translate(-50%,50%) scale("+o2+")";
+					document.getElementById("quote").innerHTML += txt.charAt(i);
+					i++;
+					$(".jam").css("opacity",o3);
+					$(".hari").css("opacity",o3);
+					setTimeout(typeWriter, speed);
+				}
+			}
+			typeWriter();
+		</script>
+
+		<script language="JavaScript">
+	    var tanggallengkap = new String();
+	    var namahari = ("Minggu Senin Selasa Rabu Kamis Jumat Sabtu");
+	    namahari = namahari.split(" ");
+	    var namabulan = ("Januari Februari Maret April Mei Juni Juli Agustus September Oktober November Desember");
+	    namabulan = namabulan.split(" ");
+
+	    var tgl = new Date();
+	    var hari = tgl.getDay();
+	    var tanggal = tgl.getDate();
+	    var bulan = tgl.getMonth();
+	    var tahun = tgl.getFullYear();
+
+	    document.getElementById('nihari').innerHTML = "" + namahari[hari] + ", " +tanggal + " " + namabulan[bulan] + " " + tahun + "";
+	    </script>
+
+	</body>
+</html>
